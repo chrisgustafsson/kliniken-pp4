@@ -1,4 +1,9 @@
-{% extends "base.html" %} {% block title %}My bookings{% endblock %} {% block content%}
-<p>This is the my bookings page</p>
-
-{% endblock %}
+{% extends "base.html" %} {% block title %}My bookings{% endblock %} {% block
+content%} {% for booking in bookings %}
+<p>
+  {{ booking.date_time }} - {% if booking.is_approved %}Approved{% else
+  %}Pending{% endif %}
+</p>
+<a href="{% url 'edit_booking' booking.id %}">Edit</a>
+<a href="{% url 'delete_booking' booking.id %}">Delete</a>
+{% endfor %} {% endblock %}
