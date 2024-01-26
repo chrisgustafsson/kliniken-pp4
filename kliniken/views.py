@@ -24,3 +24,10 @@ def edit_booking(request, booking_id):
         return redirect('my_bookings')
     return render(request, 'editbooking.html', {'booking': booking})
 
+
+@login_required
+def delete_booking(request, booking_id):
+    booking = Booking.objects.get(id=booking_id)
+    booking.delete()
+    messages.success(request, 'Booking deleted successfully!')
+    return redirect('my_bookings')
