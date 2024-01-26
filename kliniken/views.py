@@ -65,3 +65,10 @@ def signup(request):
     else:
         form = UserSignUpForm()
     return render(request, 'signup.html', {'form': form})
+
+
+@login_required
+def signout_view(request):
+    logout(request)
+    messages.success(request, 'You have been logged out successfully!')
+    return redirect('index')
