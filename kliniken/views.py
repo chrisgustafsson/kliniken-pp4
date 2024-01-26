@@ -31,3 +31,21 @@ def delete_booking(request, booking_id):
     booking.delete()
     messages.success(request, 'Booking deleted successfully!')
     return redirect('my_bookings')
+
+
+def login(request):
+    if request.method == 'POST':
+        form = UserLoginForm(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password']
+            user = authenticate(request, username=username, password=password)
+            if user is not None:
+                login(request, user)
+                messages.success(request, 'Login successful!')
+                return redirect('index')
+            else:
+                messages.error(request, 'Wrong username/password. Try again.')
+    else:
+        form = UserLoginForm()
+        return render(request, 'login.html', {'form': form})
