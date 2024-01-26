@@ -49,3 +49,19 @@ def login(request):
     else:
         form = UserLoginForm()
     return render(request, 'login.html', {'form': form})
+
+
+def signup(request):
+    if request.method == 'POST':
+        form = UserSignUpForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password1']
+            user = authenticate(request, username=username, password=password)
+            login(request, user)
+            messages.success(request, 'Sign up successful!')
+            return redirect('index')
+    else:
+        form = UserSignUpForm()
+    return render(request, 'signup.html', {'form': form})
