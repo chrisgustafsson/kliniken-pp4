@@ -72,3 +72,7 @@ def signout_view(request):
     logout(request)
     messages.success(request, 'You have been logged out successfully!')
     return redirect('index')
+
+
+def error_view(request):
+    return render(request, 'error.html')
