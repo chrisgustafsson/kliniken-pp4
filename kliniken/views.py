@@ -34,7 +34,7 @@ def delete_booking(request, booking_id):
     return redirect('my_bookings')
 
 
-def login(request):
+def login_view(request):
     if request.method == 'POST':
         form = UserLoginForm(request.POST)
         if form.is_valid():
@@ -52,7 +52,7 @@ def login(request):
     return render(request, 'login.html', {'form': form})
 
 
-def signup(request):
+def signup_view(request):
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
