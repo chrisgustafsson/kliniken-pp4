@@ -1,4 +1,16 @@
 {% extends "base.html" %} {% block title %}Home{% endblock %} {% block content%}
-<p>This is the home page</p>
+<section class="hero">
+    <img src="{% static '' %}" alt="">
+    <h2>Welcome to Kliniken</h2>
+    <p>Book an appointment with the doctor to get your health
+        checked up today!
+    </p>
+    <a href="{% url 'my_bookings' %}" class="btn">Book Now</a>
+</section>
+
+<section class="opening-hours">
+    <h3>Opening Hours</h3>
+    <p>Monday to Friday: 10:00 - 16:00 </p>
+</section>
 
 {% endblock %}
