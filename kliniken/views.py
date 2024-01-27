@@ -4,7 +4,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.models import User
 from .models import Booking
-from .forms import BookingForm, UserLoginForm, UserSignUpForm
+from .forms import BookingForm, UserLoginForm, CustomUserCreationForm
 
 
 def index(request):
