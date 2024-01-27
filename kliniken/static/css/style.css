@@ -1,0 +1,13 @@
+body {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    justify-content: center;
+}
+
+.hero-image {
+    width: 60vw;
+    height: 60vh;
+}
