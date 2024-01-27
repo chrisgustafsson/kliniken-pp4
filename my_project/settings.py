@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-ej-q%o8t-v*-^l5jhoyz2xh)4gp!ka@8$ka!jf&@*)gu@!xnvj
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '8000-chrisgustafsson-kliniken-rvbc6p7trh.us2.codeanyapp.com', 
+    '8000-chrisgustafsson-kliniken-rvbc6p7trh.us2.codeanyapp.com',
     '.herokuapp.com',]
 
 
@@ -118,7 +118,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'kliniken/static')]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
