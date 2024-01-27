@@ -30,6 +30,7 @@ ALLOWED_HOSTS = [
     '8000-chrisgustafsson-kliniken-rvbc6p7trh.us2.codeanyapp.com',
     '.herokuapp.com',]
 
+CSRF_TRUSTED_ORIGINS = ['https://*.codeanyapp.com', 'https://*.127.0.0.1', 'https://*.herokuapp.com']
 
 # Application definition
 
