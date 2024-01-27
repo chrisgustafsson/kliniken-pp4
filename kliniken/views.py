@@ -54,17 +54,13 @@ def login(request):
 
 def signup(request):
     if request.method == 'POST':
-        form = UserSignUpForm(request.POST)
+        form = CustomUserCreationForm(request.POST)
         if form.is_valid():
             form.save()
-            username = form.cleaned_data['username']
-            password = form.cleaned_data['password1']
-            user = authenticate(request, username=username, password=password)
-            login(request, user)
-            messages.success(request, 'Sign up successful!')
-            return redirect('index')
+            return redirect('login')
     else:
-        form = UserSignUpForm()
+        form = CustomUserCreationForm()
+
     return render(request, 'signup.html', {'form': form})
 
 
