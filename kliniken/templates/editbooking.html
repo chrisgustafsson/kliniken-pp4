@@ -2,7 +2,10 @@
 content%}
 <h2>Edit Booking</h2>
 <form method="post">
-  <input type="submit" value="Update Booking" />
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Update Booking">
 </form>
+<a href="{% url 'my_bookings' %}">Back to My Bookings</a>
 
 {% endblock %}
